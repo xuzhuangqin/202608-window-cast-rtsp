@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 运行时产物
+logs/
+
+# 二进制与下载文件（FFmpeg / MediaMTX 需用户自行下载，见 README）
+tools/*.exe
+tools/*.zip
+tools/*.7z
+tools/*.tar.*
+tools/mediamtx.yml
+tools/LICENSE
+
+# 本地配置覆盖（如个人修改的 config.local.yaml）
+config.local.yaml
+config.json
+
+# IDE
+.idea/
+.vscode/
+*.swp

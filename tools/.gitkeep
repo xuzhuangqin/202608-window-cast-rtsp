@@ -1,0 +1,2 @@
+# 放置二进制文件：ffmpeg.exe / ffprobe.exe / mediamtx.exe
+# 从 README 中给出的官方地址下载后放于此目录，程序会自动在此查找。

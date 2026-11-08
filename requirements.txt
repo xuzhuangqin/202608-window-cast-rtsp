@@ -1,0 +1,10 @@
+# 核心依赖（MVP 最低要求：全部为可选，标准库即可运行）
+# 若使用 YAML 配置：pip install PyYAML
+PyYAML>=6.0
+
+# 可选：更强的窗口枚举（枚举/置顶窗口等高级能力），缺失时自动回退到 ctypes 标准库实现
+pywin32>=306; sys_platform == "win32"
+
+# 可选：HTTP 控制接口（仅启用 http_api.enabled 时需要）
+fastapi>=0.110
+uvicorn[standard]>=0.29

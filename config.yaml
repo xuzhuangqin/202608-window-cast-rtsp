@@ -1,0 +1,42 @@
+# window-cast-rtsp 示例配置（单路流）
+# 说明：所有路径/端口/标题/流名均可在此修改，代码无硬编码。
+
+rtsp:
+  host: "127.0.0.1"        # RTSP 监听地址（对外拉流用 0.0.0.0）
+  port: 8554               # RTSP 端口
+  stream:
+    name: "window"         # 流名称，最终地址 rtsp://host:port/name
+    capture:
+      title: "*RTSP协议简介*"   # 窗口标题（支持 * 通配，如 "记事本" / "*Chrome*"）
+      process: ""          # 进程名（如 notepad.exe）；与 title 至少填一个
+      fps: 30
+      width: 0             # 0 = 使用窗口原始尺寸
+      height: 0
+      input_method: "gdigrab"
+    encoder:
+      codec: "libx264"
+      preset: "ultrafast"
+      tune: "zerolatency"
+      pix_fmt: "yuv420p"
+      bitrate: "2000k"
+      gop: 0               # 0 = fps*2
+      hw_encoders: ["h264_nvenc", "h264_qsv"]
+      hw_fallback: true    # 硬件编码失败自动回退 libx264
+
+process:
+  ffmpeg_path: "ffmpeg"      # 可写绝对路径，或放 tools/ 目录
+  ffprobe_path: "ffprobe"
+  mediamtx_path: "mediamtx"
+  max_restarts: 5
+  restart_backoff: 1.0
+  restart_max_backoff: 30.0
+  startup_wait: 2.0
+
+http:
+  enabled: false
+  host: "127.0.0.1"
+  port: 8080
+
+log:
+  dir: "logs"
+  level: "INFO"
